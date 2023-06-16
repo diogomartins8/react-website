@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import Description from './containers/Description/description';
+import Sketch from './containers/Sketch/sketch';
+import Flow from './containers/Flow/flow';
+import Logbook from './containers/Logbook/logbook'
+import Error from './containers/Error/error'
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+       <Routes>
+          <Route path="/" element={<Description />} />
+          <Route path="/flow" element={<Flow />} />
+          <Route path="/sketch" element={<Sketch />} />
+          <Route path="/logbook" element={<Logbook />} />
+          <Route path="*" element={<Error />} />
+       </Routes>
+    </>
   );
 }
 
